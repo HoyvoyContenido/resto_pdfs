@@ -1,0 +1,245 @@
+/* Ajustes generales para el diseño */
+body, html {
+  height: 100%;
+  background-color: #f0f0f0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+@font-face {
+  font-family: 'DIN Round Pro';
+  src: url('fonts/DIN Round Pro/DINRoundPro-Bold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DIN Round Pro';
+  src: url('fonts/DIN Round Pro/DINRoundPro-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Aplicamos la fuente DIN Round Pro a todo el documento */
+body, html {
+  font-family: 'DIN Round Pro', Arial, sans-serif;
+}
+
+/* Estilo para el header */
+header {
+  background-color: #f8e600 !important;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  color: #000; /* Ajusta el color del texto */
+  font-size: 3em; /* Ajusta el tamaño de la fuente */
+  margin: 0;
+}
+
+h3 {
+  color: #000; /* Color del texto dentro del recuadro */
+  font-size: 1.25em;
+  background-color: #fff; /* Fondo blanco */
+  padding: 10px 20px;
+  display: inline-block; /* Para que el h3 se ajuste a su contenido */
+  margin-top: 10px; /* Separación entre h1 y h3 */
+}
+
+/* Hacer que el logo sea responsive */
+.logo img {
+  max-width: 80px; /* Tamaño máximo en pantallas grandes */
+  height: auto; /* Asegura que mantenga la proporción */
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    max-width: 120px; /* Tamaño más pequeño en tabletas */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    max-width: 100px; /* Tamaño más pequeño en móviles */
+  }
+}
+
+/* Estilo para los enlaces de los vehículos */
+.vehicle-link {
+  text-decoration: none;
+  color: #000;
+  transition: transform 0.3s ease;
+  height: 350px;
+}
+
+.vehicle-link:hover {
+  transform: scale(1.05); /* Efecto de aumento en hover */
+}
+
+.vehicle-link img {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+  transition: transform 0.5s;
+}
+
+.vehicle-link:hover img {
+  opacity: 0.7; /* Translucidez al pasar el cursor */
+}
+
+/* Estilo para los textos (Mini, Jeep Automático, etc.) */
+.vehicle-link p {
+  position: relative;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-top: auto;
+}
+
+.vehicle-link p::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 5px;
+  background-color: #f8e600;
+}
+
+.vehicle-link img.vehicle-image {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  transition: transform 0.9s ease, opacity 0.9s ease;
+}
+
+/* Imagen translúcida superpuesta inicialmente oculta */
+.translucent-image {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+  pointer-events: none; /* Evitar interacción con la imagen translúcida */
+}
+
+/* Al hacer hover, mover la imagen original y mostrar la translúcida */
+.vehicle-link:hover .vehicle-image {
+  transform: translateX(-2800px); /* Mover la imagen a la izquierda */
+}
+
+.vehicle-link:hover .translucent-image {
+  opacity: 0.3; /* Hacer visible la imagen translúcida simulando aire */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .vehicle-link {
+    max-width: 350px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .vehicle-link img {
+    max-height: 150px;
+  }
+
+  header h1 {
+    font-size: 1.2em;
+  }
+
+  header h3 {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .vehicle-link {
+    max-width: 100%;
+  }
+
+  .vehicle-link img {
+    max-height: 120px;
+  }
+
+  header h1 {
+    font-size: 1em;
+  }
+
+  header h3 {
+    font-size: 0.8em;
+  }
+}
+
+/* Asegurar que el contenedor principal ocupe todo el espacio restante */
+.container {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo para el footer */
+footer {
+  background-color: #d4d4d4;
+  padding: 20px;
+  text-align: center;
+  color: black;
+  width: 100%;
+  margin-top: auto;
+}
+
+/* Contenedor de Íconos */
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.footer-icons a img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 50%;
+  transition: opacity 0.3s ease;
+}
+.footer-icons a img:hover{
+  opacity: 0.5;
+}
+/* Tablet (iPad) */
+@media (max-width: 768px) {
+  .footer-icons {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .footer-icons a img {
+    width: 35px;
+    height: 35px;
+  }
+
+}
+
+/* Móvil */
+@media (max-width: 480px) {
+  .footer-icons {
+    gap: 10px;
+    justify-content: center;
+    overflow-x: auto;
+  }
+
+  .footer-icons a img {
+    width: 30px;
+    height: 30px;
+  }
+
+
+}
